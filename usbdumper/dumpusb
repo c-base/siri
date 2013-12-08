@@ -1,0 +1,16 @@
+#! /bin/bash -x
+
+sleep 5
+
+/home/siri/c-beam/c_out/ttsclient.py &
+
+
+
+dumpdir=/dump/`date +%Y%m%d%H%M%S`
+for partition in $( ls ${1}?* ); 
+do
+  mount $partition /automount || break
+  mkdir -p $dumpdir/`basename $partition` || break
+  cp -r /automount/* $dumpdir/`basename $partition`
+  umount /automount
+done
