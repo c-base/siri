@@ -1,1 +1,1 @@
-ENV{DEVTYPE}=="usb_device", ACTION=="add", SUBSYSTEM=="usb", RUN+="/bin/dumpusb /dev/sdb"
+ENV{DEVTYPE}=="usb_device", ACTION=="add", SUBSYSTEM=="usb", RUN+="/bin/dumpusb /dev/sdb &"
